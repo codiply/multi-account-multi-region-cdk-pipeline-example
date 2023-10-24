@@ -1,0 +1,4 @@
+naming:
+  environment:
+    short_name: test
+    complete_name: testing

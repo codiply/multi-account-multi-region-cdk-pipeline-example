@@ -1,0 +1,16 @@
+accounts:
+  tool:
+    account_id: "000000000000"
+    is_cicd_account: True
+  dev:
+    account_id: "111111111111"
+    is_enabled: True
+    needs_manual_approval: False
+  pre:
+    account_id: "222222222222"
+    is_enabled: True
+    needs_manual_approval: True
+  prod:
+    account_id: "333333333333"
+    is_enabled: True
+    needs_manual_approval: True

@@ -1,0 +1,19 @@
+cicd_pipeline:
+  github_repo: codiply/multi-account-multi-region-cdk-pipeline-example
+  github_token_secret_key: github-token
+  git_branch: main
+  region: eu-west-1
+naming:
+  project_name: example-cdk-pipeline
+  environment:
+    short_name: tool
+    complete_name: tooling
+stacks:
+  networking:
+    regions:
+      - eu-west-1
+      - eu-west-2
+networking:
+  vpc_cidr: "10.0.0.0/16"
+  max_availability_zones: 2
+  nat_gateways: 0

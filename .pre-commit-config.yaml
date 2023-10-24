@@ -1,0 +1,53 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=4000"]
+      - id: check-yaml
+        types: [file, yaml]
+      - id: mixed-line-ending
+      - id: check-symlinks
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        types: [file, python]
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        entry: pflake8
+        additional_dependencies:
+          - "pyproject-flake8==6.1.0"
+        types: [file, python]
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.5.1
+    hooks:
+      - id: mypy
+        exclude: ^tests/
+        args: [--strict]
+        additional_dependencies:
+          - "aws-cdk-lib==2.100.0"
+          - "constructs==10.0.0"
+          - "pydantic==2.4.2"
+          - "PyYAML==6.0.1"
+          - "python-benedict==0.32.1"
+          - "types-PyYAML>=6.0.12.12"
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]

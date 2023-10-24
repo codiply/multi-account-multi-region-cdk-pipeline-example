@@ -1,0 +1,4 @@
+naming:
+  environment:
+    short_name: prod
+    complete_name: production

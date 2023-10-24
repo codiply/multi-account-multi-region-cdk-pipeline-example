@@ -1,0 +1,4 @@
+naming:
+  environment:
+    short_name: dev
+    complete_name: development
